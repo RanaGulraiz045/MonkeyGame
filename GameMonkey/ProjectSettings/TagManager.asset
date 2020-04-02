@@ -38,6 +38,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 573453107
+    locked: 0
+  - name: Background2
+    uniqueID: 4082743039
+    locked: 0
+  - name: Midground
+    uniqueID: 1020812813
+    locked: 0
+  - name: Midground2
+    uniqueID: 1919581743
+    locked: 0
+  - name: Ground
+    uniqueID: 3706307691
+    locked: 0
+  - name: Hardles
+    uniqueID: 1035621019
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
