@@ -11,11 +11,13 @@ public class Player : MonoBehaviour
     [SerializeField] float jumpSpeed = 15f;
     [SerializeField] float climbSpeed = 15f;
     [SerializeField] Vector2 deathKick = new Vector2(0f, 0f);
-    //[SerializeField] Animator myAnimator;
+    [SerializeField] Animator myAnimator;
 
 
     // State
     bool isAlive = true;
+    float controlThrow;
+    bool facingRight = true;
     
 
     Vector2 moveVelocity;
@@ -34,9 +36,9 @@ public class Player : MonoBehaviour
         
         
         myBody = GetComponent<Rigidbody2D>();
-        //myAnimator = GetComponent<Animator>();
+        myAnimator = GetComponent<Animator>();
         myFeet = GetComponent<PolygonCollider2D>();
-        myCollider = GetComponent<BoxCollider2D>();
+        //myCollider = GetComponent<BoxCollider2D>();
         gravityScaleAtStart = myBody.gravityScale;
         
     }
@@ -51,11 +53,17 @@ public class Player : MonoBehaviour
         }
         Run();
         Jump();
-       //FlipCharacterFace();
-       // Climbing();
+        //FlipCharacterFace();
+        // Climbing();
         //Die();
-
-        //UpdateDirection();
+        if (controlThrow < 0 && facingRight)
+        {
+            UpdateDirection();
+        }
+        else if(controlThrow > 0 && !facingRight)
+        {
+            UpdateDirection();
+        }
 
 
     }
@@ -79,12 +87,12 @@ public class Player : MonoBehaviour
 
     private void Run()
     {
-        float controlThrow = Input.GetAxis("Horizontal");
+        controlThrow = Input.GetAxis("Horizontal");
         Vector2 playerVelocity = new Vector2(controlThrow * speed, myBody.velocity.y);
         myBody.velocity = playerVelocity;
 
         bool playerHasHorizontalSpeed = Mathf.Abs(myBody.velocity.x) > Mathf.Epsilon;
-        //myAnimator.SetBool("Running", playerHasHorizontalSpeed);
+        myAnimator.SetBool("Running", playerHasHorizontalSpeed);
 
         
     }
@@ -124,14 +132,14 @@ public class Player : MonoBehaviour
             //myAnimator.SetBool("Jump", true);
           
         }
-        else
+        /*else
         {
             //myAnimator.SetBool("Jump", false);
-        }
+        }*/
         
           
        
-       // 
+        
         //myAnimator.SetBool("Jump", playerHasVerticalSpeed);
     }
 
@@ -145,24 +153,9 @@ public class Player : MonoBehaviour
             transform.localScale = new Vector2(Mathf.Sign(myBody.velocity.x), 1f);
         }
     }*/
-    /*private void UpdateDirection()
+    private void UpdateDirection()
     {
-
-
-        
-         if (Input.GetAxis("Horizontal") < 0) {
-             transform.localScale = new Vector2(-0.1f, 0.09f);
-            // transform.Rotate(0f, 180f, 0f);
-            //firePoint.transform.Rotate(0f, 180f, 0f);
-         }
-         if (Input.GetAxis("Horizontal") > 0)
-         {
-             transform.localScale = new Vector2(0.1f,0.09f);
-            //firePoint.transform.Rotate(0f, 0f, 0f);
-            //transform.Rotate(0f, 180f, 0f);
-        }
-
-
-
-    }*/
+        facingRight = !facingRight;
+        transform.Rotate(0f, 180f, 0f);
+    }
 }
