@@ -28,6 +28,12 @@ public class Player : MonoBehaviour
     PolygonCollider2D myFeet;
     float gravityScaleAtStart;
     BoxCollider2D myCollider;
+
+    //For Health
+    public int maxHealth = 100;
+    public int currentHealth;
+
+    public HealthBar healthBar;
      
 
     // Start is called before the first frame update
@@ -40,6 +46,9 @@ public class Player : MonoBehaviour
         myFeet = GetComponent<PolygonCollider2D>();
         //myCollider = GetComponent<BoxCollider2D>();
         gravityScaleAtStart = myBody.gravityScale;
+
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
         
     }
 
@@ -55,7 +64,7 @@ public class Player : MonoBehaviour
         Jump();
         //FlipCharacterFace();
         // Climbing();
-        //Die();
+        Die();
         if (controlThrow < 0 && facingRight)
         {
             UpdateDirection();
@@ -64,26 +73,27 @@ public class Player : MonoBehaviour
         {
             UpdateDirection();
         }
-
+        HealthBarDamage();
+        
 
     }
     
-    /*private void Die()
+    private void Die()
     {
         if (myFeet.IsTouchingLayers(LayerMask.GetMask("Death")) )
         {
             isAlive = false;
-            myAnimator.SetTrigger("FloatingDie");
-            GetComponent<Rigidbody2D>().velocity = deathKick;
+            //myAnimator.SetTrigger("FloatingDie");
+            //GetComponent<Rigidbody2D>().velocity = deathKick;
         }
         if (myFeet.IsTouchingLayers(LayerMask.GetMask("Hardles")))
         {
             isAlive = false;
-            myAnimator.SetTrigger("HardleDie");
-            GetComponent<Rigidbody2D>().velocity = deathKick;
+            //myAnimator.SetTrigger("HardleDie");
+            //GetComponent<Rigidbody2D>().velocity = deathKick;
         }
 
-    }*/
+    }
 
     private void Run()
     {
@@ -157,5 +167,18 @@ public class Player : MonoBehaviour
     {
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
+    }
+
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+    }
+    void HealthBarDamage()
+    {
+        if (myFeet.IsTouchingLayers(LayerMask.GetMask("Death")))
+        {
+            TakeDamage(20);
+        }
     }
 }

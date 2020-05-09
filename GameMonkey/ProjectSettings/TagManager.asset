@@ -14,8 +14,8 @@ TagManager:
   - 
   - 
   - Ground
-  - 
-  - 
+  - Hardles
+  - Death
   - 
   - 
   - 
@@ -56,6 +56,12 @@ TagManager:
   - name: Hardles
     uniqueID: 1035621019
     locked: 0
+  - name: Player
+    uniqueID: 2020301409
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Weapon
+    uniqueID: 267492599
     locked: 0
