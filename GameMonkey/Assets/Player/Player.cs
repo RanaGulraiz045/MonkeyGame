@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour
 {
@@ -97,7 +98,7 @@ public class Player : MonoBehaviour
 
     private void Run()
     {
-        controlThrow = Input.GetAxis("Horizontal");
+        controlThrow = CrossPlatformInputManager.GetAxis("Horizontal");
         Vector2 playerVelocity = new Vector2(controlThrow * speed, myBody.velocity.y);
         myBody.velocity = playerVelocity;
 
@@ -134,7 +135,7 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if (CrossPlatformInputManager.GetButtonDown("Jump"))
         {
             Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);
             myBody.velocity += jumpVelocityToAdd;
