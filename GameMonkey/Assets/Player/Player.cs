@@ -29,13 +29,16 @@ public class Player : MonoBehaviour
     PolygonCollider2D myFeet;
     float gravityScaleAtStart;
     BoxCollider2D myCollider;
+    public GameObject myWeapon;
+    public GameObject attackButton;
 
     //For Health
     public int maxHealth = 100;
     public int currentHealth;
 
     public HealthBar healthBar;
-     
+
+    public GameObject deathUI;
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +53,10 @@ public class Player : MonoBehaviour
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        
+
+        myWeapon.SetActive(false);
+        attackButton.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -81,19 +87,27 @@ public class Player : MonoBehaviour
     
     private void Die()
     {
-        if (myFeet.IsTouchingLayers(LayerMask.GetMask("Death")) )
+        /*if (myFeet.IsTouchingLayers(LayerMask.GetMask("Death")) )
         {
             isAlive = false;
+            StartCoroutine(loadDeathUI());
             //myAnimator.SetTrigger("FloatingDie");
             //GetComponent<Rigidbody2D>().velocity = deathKick;
-        }
+        }*/
         if (myFeet.IsTouchingLayers(LayerMask.GetMask("Hardles")))
         {
             isAlive = false;
-            //myAnimator.SetTrigger("HardleDie");
+            myAnimator.SetTrigger("Death");
+            StartCoroutine(loadDeathUI());
             //GetComponent<Rigidbody2D>().velocity = deathKick;
         }
 
+    }
+    public IEnumerator loadDeathUI()
+    {
+        yield return new WaitForSeconds(0.5f);
+        deathUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     private void Run()

@@ -5,12 +5,48 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public SceneFader sceneFader;
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        sceneFader.FadeTo(StartGame());
     }
     public void LevelSelector()
     {
-        SceneManager.LoadScene("LevelSelect");
+        sceneFader.FadeTo("LevelSelect");
+    }
+    string level;
+    int levelReachVal = PlayerPrefs.GetInt("levelReached",1);
+    
+    string StartGame()
+    {
+        switch (levelReachVal)
+        {
+            case 1:
+                {
+                    level = "Level01";
+                    return level;
+                }
+            case 2:
+                {
+                    level = "Level02";
+                    return level;
+                }
+            case 3:
+                {
+                    level = "Level03";
+                    return level;
+                }
+            case 4:
+                {
+                    level = "Level04";
+                    return level;
+                }
+            default:
+                {
+                    level = "Level01";
+                    return level;
+                }
+        }
+        
     }
 }
