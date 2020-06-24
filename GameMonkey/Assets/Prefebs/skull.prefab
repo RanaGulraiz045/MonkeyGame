@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4467664493917987598}
   - component: {fileID: 4467664493917987599}
   - component: {fileID: 4467664493917987592}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: skull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4467664494582083551}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}

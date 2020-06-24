@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     //Confiig
     [SerializeField] float speed = 100f;
     [SerializeField] float jumpSpeed = 15f;
-    [SerializeField] float climbSpeed = 15f;
+    //[SerializeField] float climbSpeed = 15f;
     [SerializeField] Vector2 deathKick = new Vector2(0f, 0f);
     [SerializeField] Animator myAnimator;
 

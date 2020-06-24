@@ -41,6 +41,41 @@ public class MainMenu : MonoBehaviour
                     level = "Level04";
                     return level;
                 }
+            case 5:
+                {
+                    level = "Level05";
+                    return level;
+                }
+            case 6:
+                {
+                    level = "Level06";
+                    return level;
+                }
+            case 7:
+                {
+                    level = "Level07";
+                    return level;
+                }
+            case 8:
+                {
+                    level = "Level08";
+                    return level;
+                }
+            case 9:
+                {
+                    level = "Level09";
+                    return level;
+                }
+            case 10:
+                {
+                    level = "Level10";
+                    return level;
+                }
+            case 11:
+                {
+                    level = "Level11";
+                    return level;
+                }
             default:
                 {
                     level = "Level01";
