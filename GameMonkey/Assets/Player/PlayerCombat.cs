@@ -24,10 +24,11 @@ public class PlayerCombat : MonoBehaviour
         animationAttack.SetTrigger("Attack");
         Collider2D[] enemyHit = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
-        /*foreach(Collider2D enemy in enemyHit)
+        foreach(Collider2D enemy in enemyHit)
         {
-            enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
-        }*/
+            Debug.Log("Yes");
+            enemy.GetComponent<StoneSkullDamage>().TakeDamage(attackDamage);
+        }
     }
 
     private void OnDrawGizmosSelected()

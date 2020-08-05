@@ -76,6 +76,86 @@ public class MainMenu : MonoBehaviour
                     level = "Level11";
                     return level;
                 }
+            case 12:
+                {
+                    level = "Level12";
+                    return level;
+                }
+            case 13:
+                {
+                    level = "Level13";
+                    return level;
+                }
+            case 14:
+                {
+                    level = "Level14";
+                    return level;
+                }
+            case 15:
+                {
+                    level = "Level15";
+                    return level;
+                }
+            case 16:
+                {
+                    level = "Level16";
+                    return level;
+                }
+            case 17:
+                {
+                    level = "Level17";
+                    return level;
+                }
+            case 18:
+                {
+                    level = "Level18";
+                    return level;
+                }
+            case 19:
+                {
+                    level = "Level19";
+                    return level;
+                }
+            case 20:
+                {
+                    level = "Level20";
+                    return level;
+                }
+            case 21:
+                {
+                    level = "Level21";
+                    return level;
+                }
+            case 22:
+                {
+                    level = "Level22";
+                    return level;
+                }
+            case 23:
+                {
+                    level = "Level23";
+                    return level;
+                }
+            case 24:
+                {
+                    level = "Level24";
+                    return level;
+                }
+            case 25:
+                {
+                    level = "Level25";
+                    return level;
+                }
+            case 26:
+                {
+                    level = "Level26";
+                    return level;
+                }
+            case 27:
+                {
+                    level = "Level27";
+                    return level;
+                }
             default:
                 {
                     level = "Level01";

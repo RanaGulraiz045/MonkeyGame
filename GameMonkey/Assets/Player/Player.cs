@@ -193,7 +193,30 @@ public class Player : MonoBehaviour
     {
         if (myFeet.IsTouchingLayers(LayerMask.GetMask("Death")))
         {
-            TakeDamage(20);
+            StartCoroutine(JustWait());
+            
         }
+        else if (myFeet.IsTouchingLayers(LayerMask.GetMask("SkullStone")))
+        {
+            StartCoroutine(JustWait2());
+
+        }
+        if (currentHealth<=0)
+        {
+            deathUI.SetActive(true);
+            //Time.timeScale = 0f;
+        }
+    }
+    public IEnumerator JustWait()
+    {
+        TakeDamage(10);
+        yield return new WaitForSeconds(1f);
+        
+    }
+    public IEnumerator JustWait2()
+    {
+        TakeDamage(2);
+        yield return new WaitForSeconds(1f);
+
     }
 }

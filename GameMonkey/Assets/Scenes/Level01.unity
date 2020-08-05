@@ -6932,7 +6932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winUI: {fileID: 1810825761}
   winCelebration: {fileID: 35317830}
-  playerReach: 11
+  playerReach: 27
 --- !u!61 &682302474
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11755,6 +11755,16 @@ PrefabInstance:
       propertyPath: sceneFader
       value: 
       objectReference: {fileID: 1394741103}
+    - target: {fileID: 8930055153500241230, guid: 175abc766ff7dde49aa9a6fe5a2f82cc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.001159668
+      objectReference: {fileID: 0}
+    - target: {fileID: 8930055154510447557, guid: 175abc766ff7dde49aa9a6fe5a2f82cc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000061035156
+      objectReference: {fileID: 0}
     - target: {fileID: 8930055154542761337, guid: 175abc766ff7dde49aa9a6fe5a2f82cc,
         type: 3}
       propertyPath: m_AnchorMax.x

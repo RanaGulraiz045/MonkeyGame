@@ -10,6 +10,9 @@ public class Cannon : MonoBehaviour
 
     public GameObject projectile;
     private Transform firePointPosition;
+
+    public AudioSource explosion;
+    //public ParticleSystem cannonEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,14 +27,19 @@ public class Cannon : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (timeBtwShoots <= 0)
+        if (collision.tag == "Player")
         {
-            Instantiate(projectile, firePointPosition.position, Quaternion.identity);
-            timeBtwShoots = startTimeBtwShots;
-        }
-        else
-        {
-            timeBtwShoots -= Time.deltaTime;
+            if (timeBtwShoots <= 0)
+            {
+                Instantiate(projectile, firePointPosition.position, Quaternion.identity);
+                explosion.Play();
+                //cannonEffect.Play();
+                timeBtwShoots = startTimeBtwShots;
+            }
+            else
+            {
+                timeBtwShoots -= Time.deltaTime;
+            }
         }
 
     }
