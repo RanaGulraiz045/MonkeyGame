@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject quitUI;
     public SceneFader sceneFader;
     public void PlayGame()
     {
@@ -13,6 +14,18 @@ public class MainMenu : MonoBehaviour
     public void LevelSelector()
     {
         sceneFader.FadeTo("LevelSelect");
+    }
+    public void Quit()
+    {
+        quitUI.SetActive(true);
+    }
+    public void Yes()
+    {
+        Application.Quit();
+    }
+    public void No()
+    {
+        quitUI.SetActive(false);
     }
     string level;
     int levelReachVal = PlayerPrefs.GetInt("levelReached",1);
@@ -154,6 +167,46 @@ public class MainMenu : MonoBehaviour
             case 27:
                 {
                     level = "Level27";
+                    return level;
+                }
+            case 28:
+                {
+                    level = "Level28";
+                    return level;
+                }
+            case 29:
+                {
+                    level = "Level29";
+                    return level;
+                }
+            case 30:
+                {
+                    level = "Level30";
+                    return level;
+                }
+            case 31:
+                {
+                    level = "Level31";
+                    return level;
+                }
+            case 32:
+                {
+                    level = "Level32";
+                    return level;
+                }
+            case 33:
+                {
+                    level = "Level33";
+                    return level;
+                }
+            case 34:
+                {
+                    level = "Level34";
+                    return level;
+                }
+            case 35:
+                {
+                    level = "Level35";
                     return level;
                 }
             default:

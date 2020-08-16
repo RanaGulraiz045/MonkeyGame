@@ -11,7 +11,7 @@ public class FireStone : MonoBehaviour
     public GameObject projectile;
     private Transform firePointPosition;
 
-    //public AudioSource explosion;
+    public AudioSource stoneFire;
     //public ParticleSystem cannonEffect;
     // Start is called before the first frame update
     void Start()
@@ -32,7 +32,7 @@ public class FireStone : MonoBehaviour
             if (timeBtwShoots <= 0)
             {
                 Instantiate(projectile, firePointPosition.position, Quaternion.identity);
-                //explosion.Play();
+                stoneFire.Play();
                 //cannonEffect.Play();
                 timeBtwShoots = startTimeBtwShots;
             }
